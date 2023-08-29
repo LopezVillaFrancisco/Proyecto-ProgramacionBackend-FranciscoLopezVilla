@@ -1,0 +1,68 @@
+[
+     {
+          "title": "Producto 1",
+          "description": "Descripción del producto 1",
+          "category": "Categoría 1",
+          "price": 10.99,
+          "thumbnail": "url_imagen_1",
+          "code": "P12345",
+          "stock": 15,
+          "status": true,
+          "id": 1
+     },
+     {
+          "title": "Producto 2",
+          "description": "Descripción del producto 2",
+          "category": "Categoría 2",
+          "price": 20.99,
+          "thumbnail": "url_imagen_2",
+          "code": "P67890",
+          "stock": 20,
+          "status": true,
+          "id": 2
+     },
+     {
+          "title": "Producto 3",
+          "description": "Descripción del producto 3",
+          "category": "Categoría 1",
+          "price": 15.49,
+          "thumbnail": "url_imagen_3",
+          "code": "P23456",
+          "stock": 8,
+          "status": true,
+          "id": 3
+     },
+     {
+          "title": "Producto 4",
+          "description": "Descripción del producto 4",
+          "category": "Categoría 3",
+          "price": 30.99,
+          "thumbnail": "url_imagen_4",
+          "code": "P78901",
+          "stock": 5,
+          "status": true,
+          "id": 4
+     },
+     {
+          "title": "Producto 5",
+          "description": "Descripción del producto 5",
+          "category": "Categoría 2",
+          "price": 25.99,
+          "thumbnail": "url_imagen_5",
+          "code": "P34567",
+          "stock": 12,
+          "status": true,
+          "id": 5
+     },
+     {
+          "title": "Producto 6",
+          "description": "Descripción del producto 6",
+          "category": "Categoría 3",
+          "price": 40.99,
+          "thumbnail": "url_imagen_6",
+          "code": "P12346",
+          "stock": 18,
+          "status": true,
+          "id": 6
+     }
+]
