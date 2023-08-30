@@ -18,7 +18,7 @@ function addProduct(title,description,category,price,thumbnail,code,stock){
         description:description,
         category:category,
         price:price,
-        thumbnail:thumbnail,
+        thumbnails:thumbnails,
         code:code,
         stock:stock , 
         status:true,
@@ -100,13 +100,16 @@ router.post('/', (req, res) => {
     }
 
     productosAgregar.forEach(product => {
-        const { title, description, category, price, thumbnail, code, stock } = product;
+        const { title, description, category, price, thumbnails, code, stock } = product;
 
-        if (!title || !description || !category || !price || !thumbnail || !code || !stock) {
+        if (!title || !description || !category || !price || !code || !stock) {
             return res.status(400).json({ error: 'El valor ingresado no es válido' });
+        } 
+        if (!Array.isArray(thumbnails) || thumbnails.some(item => typeof item !== 'string')) {
+            return res.status(400).json({ error: 'La propiedad "thumbnails" debe ser un array de strings' });
         }
 
-        addProduct(title, description, category, price, thumbnail, code, stock);
+        addProduct(title, description, category, price, thumbnails, code, stock);
     });
 
     res.status(201).json({ message: 'Productos agregados exitosamente' });
