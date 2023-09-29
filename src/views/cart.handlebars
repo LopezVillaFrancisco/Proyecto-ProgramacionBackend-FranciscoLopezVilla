@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Cart {{ cartId }}</h2>
+<hr>
+<div>
+    <ul id="mainProducts"></ul>
+</div>
+<script>
+
+    const loadProducts = () => {
+
+           const cartId = {{cartId}}
+
+    let apiUrl = `/api/carts/${cartId}`;
+
+
+    fetch(apiUrl)
+        .then(data => {
+            
+            return data.json();
+        })
+        .then(Object => { 
+            console.log(Object.cart);
+            let ul = '';
+            Object.cart.products.forEach(product => {
+                ul += `<li id="${product._id}"> id:${product._id} Product: ${product.title} Cantidad : ${product.quantity} </li>`;
+            });
+            let ulProduct = document.getElementById('mainProducts');
+            ulProduct.innerHTML = ul;
+        });
+}
+
+loadProducts();
+</script>
+<script src="/socket.io/socket.io.js"></script>
+</body>
+</html>
