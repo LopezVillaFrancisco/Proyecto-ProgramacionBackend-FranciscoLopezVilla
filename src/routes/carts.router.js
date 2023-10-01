@@ -30,31 +30,26 @@ router.post('/:cid/product/:pid', async (req, res) => {
     try {
         const { cid, pid } = req.params;
 
-        // Busca el carrito por su ID
-        const cart = await cartModel.findOne({ id: parseInt(cid) });
+        
+        const cart = await cartModel.findOne({ _id: cid });
 
-        // Busca el producto por su ID
-        const product = await productsModel.findOne({ id: parseInt(pid) });
+        
+        const product = await productsModel.findOne({ _id: pid });
 
         if (!cart || !product) {
             return res.status(404).json({ error: 'Carrito o producto no encontrado' });
         }
 
-        // Verifica si el producto ya está en el carrito
         const existingProductIndex = cart.products.findIndex(item => item.product.toString() === product._id.toString());
 
         if (existingProductIndex !== -1) {
-            // Si el producto ya está en el carrito, aumenta su cantidad
+            
             cart.products[existingProductIndex].quantity += 1;
         } else {
-            // Si el producto no está en el carrito, agrégalo con cantidad 1
             cart.products.push({ product: product._id, quantity: 1 });
         }
 
-        // Guarda el carrito actualizado en la base de datos
         await cart.save();
-
-        // Busca el carrito nuevamente para obtener los datos actualizados
         const newCart = await cartModel.findOne({ id: parseInt(cid) });
 
         res.status(200).json({ message: 'Producto agregado al carrito con éxito', newCart });

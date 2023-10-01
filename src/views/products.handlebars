@@ -116,7 +116,7 @@ document.addEventListener('click', async (event) => {
         const productId = event.target.getAttribute('data-product-id'); 
         
         try {
-            const response = await fetch(`/api/carts/1/product/${productId}`, {
+            const response = await fetch(`/api/carts/651648ec13b5c53fb4630ed7/product/${productId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

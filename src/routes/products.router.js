@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const Product = require('../models/Product');
+const Product = require('../models/Product'); 
 
 router.get('/', async (req, res) => {
     const limit = parseInt(req.query.limit, 10) || 10;
